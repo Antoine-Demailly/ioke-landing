@@ -1,0 +1,184 @@
+// compileCompressed: ../css/$1.css
+
+@import 'reset.scss';
+
+// Components
+
+body {
+  font: 16px/18px 'Open Sans';
+}
+
+.clear {
+  clear: both;
+}
+
+
+// Section
+// @import 'section/landing.scss';
+$header-height: 60px;
+
+header.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 2;
+  padding: 20px;
+  height: $header-height;
+  // background: green;
+
+  img.header-logo {
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  img.header-logo, .header-title {
+    display: inline-block;
+    vertical-align: baseline;
+  }
+
+  .header-title {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  nav.nav {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    height: 100%;
+    padding: 0 20px;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    .nav-item {
+      color: #4a4a4a;
+      text-decoration: none;
+      // padding: 21px 20px;
+      vertical-align: middle;
+      display: inline-block;
+      margin-left: 10px;
+
+
+      transition: color 0.3s;
+
+      &:hover {
+        color: #2d3245;
+      }
+    }
+
+    .nav-item-subscribe {
+      padding: 8px 15px;
+      border: 1px solid #2d3245;
+      color: #2d3245;
+      border-radius: 6px;
+
+      transition: background 0.3s, color 0.3s;
+
+      &:hover {
+        background: #2d3245;
+        color: white;
+      }
+    }
+  }
+}
+
+$background-height: 80vh;
+section.background {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 70vh;
+  overflow: hidden;
+
+  &.fixed {
+    position: fixed;
+    top: calc(-70vh + 60px);
+    background: white;
+    z-index: 1;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: $background-height * 2;
+    height: $background-height * 2;
+    left: -70vh;
+    bottom: -80vh;
+    transform: rotate(-45deg) translate3d(0%, 0%, 0);
+    background: #2d3245;
+  }
+}
+
+section.landing {
+  position: relative;
+  height: 70vh;
+
+  .landing-computer {
+    position: absolute;
+    width: 100%;
+    max-width: 860px;
+    top: 16%;
+    left: -15px;
+  }
+
+  .landing-content {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 50vw;
+    transform: translateY(-50%);
+
+    h2 {
+      color: rgb(74, 74, 74);
+      font-size: 28px;
+      text-align: center;
+    }
+  }
+}
+
+section.products {
+  min-height: 100vh;
+  background: #fafafa;
+
+  .products-wrapper {
+    max-width: 1080px;
+    padding: 100px 20px;
+    margin: auto;
+  }
+
+  article {
+    font-size: 0.0001;
+    aside, .article-wrapper {
+      width: 50%;
+      padding-top: 50%;
+      float: left;
+    }
+
+    aside {
+      background: #8ac2e2;
+    }
+
+    .article-wrapper {
+      background: white;
+      position: relative;
+    }
+
+    .article-content {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+    }
+  }
+}
+
+section.prices {
+  min-height: 100vh;
+  background: #fafafa;
+}
+
+section.team {
+  min-height: 100vh;
+  background: blue;
+}
