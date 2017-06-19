@@ -5,6 +5,7 @@ $(function() {
   var header = $('#header');
   var background = $('#background');
   var landing = $('#landing');
+  var body = $('body');
 
   onScrollCallback();
   $window.scroll(onScrollCallback);
@@ -14,9 +15,9 @@ $(function() {
     // console.log($window.scrollTop(), header.innerHeight(), background.height());
 
     if (scroll >= background.innerHeight() - header.innerHeight()) {
-      background.addClass('fixed');
+      body.addClass('fixed');
     } else {
-      background.removeClass('fixed');
+      body.removeClass('fixed');
     }
 
     if (scroll <= landing.innerHeight()) {

@@ -12,6 +12,11 @@ body {
   clear: both;
 }
 
+h2 {
+  color: rgb(74, 74, 74);
+  font-size: 28px;
+  text-align: center;
+}
 
 // Section
 // @import 'section/landing.scss';
@@ -92,13 +97,7 @@ section.background {
   top: 0; left: 0; right: 0;
   height: 70vh;
   overflow: hidden;
-
-  &.fixed {
-    position: fixed;
-    top: calc(-70vh + 60px);
-    background: white;
-    z-index: 1;
-  }
+  background: white;
 
   &:after {
     content: '';
@@ -107,9 +106,39 @@ section.background {
     height: $background-height * 2;
     left: -70vh;
     bottom: -80vh;
-    transform: rotate(-45deg) translate3d(0%, 0%, 0);
+    transform: rotate(-45deg);
     background: #2d3245;
   }
+}
+
+body.fixed section.background {
+  position: fixed;
+  top: calc(-70vh + 60px);
+  background: white;
+  z-index: 1;
+}
+
+section.background2 {
+  display: none;
+  position: fixed;
+  top: calc(-70vh + 60px); left: 0; right: 0;
+  height: 70vh;
+  z-index: -2;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: $background-height * 2;
+    height: $background-height * 2;
+    left: -70vh;
+    bottom: -80vh;
+    transform: rotate(-45deg) scaleY(4);
+    background: #2d3245;
+  }
+}
+
+body.fixed section.background2 {
+  display: block;
 }
 
 section.landing {
@@ -130,12 +159,6 @@ section.landing {
     right: 0;
     width: 50vw;
     transform: translateY(-50%);
-
-    h2 {
-      color: rgb(74, 74, 74);
-      font-size: 28px;
-      text-align: center;
-    }
   }
 }
 
@@ -174,11 +197,46 @@ section.products {
 }
 
 section.prices {
-  min-height: 100vh;
-  background: #fafafa;
+  position: relative;
+  height: 100vh;
+  padding: 40px 0;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 50%;
+    background: #fafafa;
+  }
+
+  .prices-background {
+    position: absolute;
+    top: 0; left: 0;
+    height: calc(100vh - 100px);
+    width: 200vw;
+    background: white;
+    transform: rotate(-2deg) translateX(-50vw);
+    transform-origin: center;
+  }
+
+  .prices-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+  }
 }
 
 section.team {
   min-height: 100vh;
-  background: blue;
+  background: transparent;
+  position: relative;
+
+  .team-wrapper {
+    position: absolute;
+    top: 25%;
+    right: 0;
+    width: 25%;
+  }
 }
