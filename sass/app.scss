@@ -18,6 +18,10 @@ h2 {
   text-align: center;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 // Section
 // @import 'section/landing.scss';
 $header-height: 60px;
@@ -111,7 +115,7 @@ section.background {
   }
 }
 
-body.fixed section.background {
+section.background.fixed {
   position: fixed;
   top: calc(-70vh + 60px);
   background: white;
@@ -132,7 +136,7 @@ section.background2 {
     height: $background-height * 2;
     left: -70vh;
     bottom: -80vh;
-    transform: rotate(-45deg) scaleY(4);
+    transform: rotate(-45deg) scaleY(3);
     background: #2d3245;
   }
 }
@@ -149,16 +153,48 @@ section.landing {
     position: absolute;
     width: 100%;
     max-width: 860px;
-    top: 16%;
+    bottom: -96px;
     left: -15px;
   }
 
   .landing-content {
     position: absolute;
     top: 50%;
-    right: 0;
-    width: 50vw;
+    right: 5vw;
+    width: 40vw;
     transform: translateY(-50%);
+    text-align: center;
+
+    &-title {
+      font-size: 30px;
+      color: #8ac2e2;
+      font-family: 'Raleway';
+    }
+
+    &-message {
+      text-align: center;
+      margin-top: 25px;
+      color: #4a4a4a;
+      font-size: 18px;
+      line-height: 1.8;
+      padding: 0 40px;
+    }
+
+    &-subscribe {
+      display: inline-block;
+      margin: auto;
+      margin-top: 20px;
+      background: #89deed;
+      padding: 10px 20px;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover {
+        background: #8ac2e2;
+      }
+    }
   }
 }
 
@@ -187,11 +223,30 @@ section.products {
     .article-wrapper {
       background: white;
       position: relative;
+      // padding: 20px;
     }
 
     .article-content {
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 50%; left: 50%;
+      width: 320px;
+      padding: 20px;
+      max-width: 100%;
+      max-height: 100%;
+      color: #7D8FA0;
+      transform: translate(-50%, -50%);
+
+      &-title {
+        text-transform: uppercase;
+        font-size: 15px;
+        margin-bottom: 20px;
+      }
+
+      &-subtitle {
+        color: rgb(74, 74, 74);
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
     }
   }
 }
